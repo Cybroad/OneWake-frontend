@@ -13,8 +13,8 @@ export default function TopPage() {
             <details className="dropdown pb-2">
                 <summary className="m-1 btn btn-sm">一括操作</summary>
                 <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                    <li className="pb-2"><a className="bg-green-200">起動</a></li>
-                    <li className="pb-2"><a className="bg-red-200">シャットダウン</a></li>
+                    <li className="pb-2"><button className="bg-green-200">起動</button></li>
+                    <li className="pb-2"><button className="bg-red-200">シャットダウン</button></li>
                 </ul>
             </details>
             <HostsList />

@@ -1,4 +1,8 @@
+import { useState } from "react"
+
 export default function RemoteHostsList() {
+    const [isDisplayMacAddress,setDisplay] = useState(false);
+    const sampleMacAddress = "AA:BB:CC:DD:EE:FF"
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -37,7 +41,7 @@ export default function RemoteHostsList() {
                             操作対象リストに追加するには、<a href="#">こちら</a>をクリックしてください
                         </td>
                         <td>192.168.0.1</td>
-                        <td>AA:BB:CC:DD:EE:FF</td>
+                        <td><div className={!isDisplayMacAddress ? "blur-sm" : ""} onClick={() => {setDisplay(!isDisplayMacAddress)}}>{ sampleMacAddress}</div></td>
                         <td>Windows 10 Pro</td>
                         <th>
                             {/* <button className="btn btn-xs btn-disabled text-white">起動</button> */}
