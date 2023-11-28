@@ -2,7 +2,7 @@ import useSWR from "swr";
 
 type hostList = {
   hostName: string;
-  ipAdress: string;
+  ipAddress: string;
   macAddress: string;
   osName: string;
 };
@@ -16,7 +16,7 @@ export default function HostsList() {
 
   if (isLoading) return "Loading...";
 
-  const hostListData: hostList[] = JSON.parse(data);
+  const hostListData: hostList[] = data;
   return (
     <div className="overflow-x-auto">
       <div className="pb-2">
@@ -42,11 +42,12 @@ export default function HostsList() {
                   <div>{item.hostName}</div>
                 </div>
               </td>
-              <td>{item["ipAdress"]}</td>
+              <td>{item["ipAddress"]}</td>
               <td>{item["macAddress"]}</td>
               <td>{item["osName"]}</td>
               <th>
                 <button
+                  type="button"
                   className="btn btn-xs btn-accent text-white"
                   id={index.toString()}
                 >
