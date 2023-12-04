@@ -2,9 +2,6 @@ import { useState } from "react";
 
 export default function RemoteHostsList() {
   const [isDisplayMacAddress, setDisplay] = useState(false);
-  const toggleMacAddressDisplay = () => {
-    setDisplay(!isDisplayMacAddress);
-  };
   const sampleMacAddress = "AA:BB:CC:DD:EE:FF";
   return (
     <div className="overflow-x-auto">
@@ -48,16 +45,7 @@ export default function RemoteHostsList() {
               をクリックしてください
             </td>
             <td>192.168.0.1</td>
-            <td>
-              <div
-                className={!isDisplayMacAddress ? "blur-sm" : ""}
-                onClick={() => {
-                  toggleMacAddressDisplay;
-                }}
-              >
-                {sampleMacAddress}
-              </div>
-            </td>
+            <td><div className={!isDisplayMacAddress ? "blur-sm" : ""} onClick={() => {setDisplay(!isDisplayMacAddress)}}>{sampleMacAddress}</div></td>
             <td>Windows 10 Pro</td>
             <th>
               {/* <button className="btn btn-xs btn-disabled text-white">起動</button> */}
