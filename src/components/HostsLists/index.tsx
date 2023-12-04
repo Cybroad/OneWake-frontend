@@ -9,8 +9,31 @@ type hostList = {
 
 export default function HostsList() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  /*const postData = {
+    name: "test",
+    ip: "192.168.0.1",
+    hostName: "DESKTOP-EXAMPLE",
+    macAddress: "00:00:00:00:00:00",
+    osName: "Windows 10",
+  };*/ //データ例
+  function addHost(postData: object) {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    };
+    fetch("https://localhost:8000/api/v1/host/add", options)
+      .then((response) => response.json())
+      .then((data) => {
+        const responseData = data;
+        console.log(responseData);
+      })
+      .catch((error) => console.error("Error:", error));
+  }
   const { data, error, isLoading } = useSWR(
-    "http://localhost:8000/api/v1/hosts",
+    "http://localhost:8000/api/v1/remote/status",
     fetcher
   );
   if (error) return "Error";
@@ -50,6 +73,15 @@ export default function HostsList() {
                   type="button"
                   className="btn btn-xs btn-accent text-white"
                   id={index.toString()}
+                  onClick={() =>
+                    addHost({
+                      name: item["hostName"],
+                      ip: item["ipAddress"],
+                      hostName: "DESKTOP-"+index.toString(),
+                      macAddress: item["macAddress"],
+                      osName: item["osName"],
+                    })
+                  }
                 >
                   追加
                 </button>

@@ -19,6 +19,7 @@ export default function AddHostPage() {
                         </div>
                         <div className="col-span-2 text-center">
                             <button className="btn btn-primary text-white" onClick={handleShow}>手動で追加</button>
+                            {/*モーダルメニューから入力フォームを作成*/}
                         </div>
                     </div>
                 </div>
@@ -29,7 +30,7 @@ export default function AddHostPage() {
 
             <dialog className="modal" ref={ref}>
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
+                    <h3 className="font-bold text-lg">追加フォーム</h3>
                     <p className="py-4">Press ESC key or click the button below to close</p>
                     <div className="modal-action">
                         <form method="dialog">

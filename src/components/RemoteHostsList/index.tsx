@@ -1,8 +1,9 @@
 import { useState } from "react";
-
+import useSWR  from "swr";
 export default function RemoteHostsList() {
   const [isDisplayMacAddress, setDisplay] = useState(false);
   const sampleMacAddress = "AA:BB:CC:DD:EE:FF";
+  //データベースからサーバーのデータを取得し、状態と合わせて返却するAPIへのアクセス
   return (
     <div className="overflow-x-auto">
       <table className="table">
